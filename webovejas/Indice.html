@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpieza Ecológica de Terrenos con exceso de hierba / Patios / Exteriores/ de manera ecologica con Ovejas</title>
+    <meta name="description" content="Limpieza de terrenos de maleza y hierba con ovejas, una alternativa ecológica y efectiva. Transformamos terrenos enmontados de forma natural y sostenible.">
+    <meta name="keywords" content="limpieza de terrenos, ovejas, limpieza ecológica, control de maleza, Tijuana, Baja California, México, sostenible, agricultura">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar {
+            background-color: #28a745; /* Verde */
+            color: white;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: white !important;
+        }
+        .jumbotron {
+            background-color: #e9ecef;
+            padding: 2rem 1rem; /* Ajustado para el carrusel */
+            text-align: center;
+        }
+        /* Estilos para el carrusel dentro del jumbotron */
+        #bannerCarousel .carousel-inner img {
+            max-height: 450px; /* Ajusta la altura máxima del banner */
+            object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+            width: 100%;
+        }
+        .jumbotron-text {
+            margin-top: 2rem; /* Espacio entre carrusel y texto */
+        }
+        .jumbotron-text h1 {
+             font-size: 2.5rem;
+         }
+
+        .portfolio-item {
+            margin-bottom: 2rem;
+        }
+        .portfolio-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem; /* Espacio entre fotos antes/después */
+        }
+        .contact-form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .whatsapp-button a {
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+        .admin-panel {
+            display: none; /* Oculto por defecto */
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            border-radius: 0.5rem;
+        }
+        .admin-panel h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid #ccc;
+            padding-top: 1rem;
+        }
+        .admin-panel label {
+            font-weight: bold;
+        }
+        .admin-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        .admin-list-item img {
+            max-width: 50px; /* Miniatura en el admin */
+            margin-right: 10px;
+        }
+        .admin-list-item button {
+            margin-left: 10px;
+        }
+        .admin-tabs {
+            margin-bottom: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Limpieza Ecológica con Ovejas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portafolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrarPanelAdmin(); return false;">Administrar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Jumbotron con Carrusel -->
+    <div class="jumbotron">
+        <div class="container">
+            <!-- Carrusel -->
+            <div id="bannerCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators" id="banner-indicators">
+                    <!-- Indicadores se generan dinámicamente -->
+                </ol>
+                <div class="carousel-inner" id="banner-inner">
+                    <!-- Imágenes del carrusel se generan dinámicamente -->
+                </div>
+                <a class="carousel-control-prev" href="#bannerCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#bannerCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <!-- Texto debajo del carrusel -->
+            <div class="jumbotron-text">
+                <h1 class="display-4">Transforma tus Terrenos de Forma Natural</h1>
+                <p class="lead">Limpieza ecológica de terrenos con ovejas. Una alternativa sostenible, eficiente y amigable con el medio ambiente. Eliminamos maleza y hierba de forma natural.</p>
+                <hr class="my-4">
+                <p>¡Contáctanos para una cotización!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Portafolio -->
+    <section id="portfolio" class="container">
+        <h2>Portafolio de Trabajos Realizados</h2>
+        <p>Mira cómo nuestras ovejas transforman los terrenos:</p>
+        <div class="row" id="portfolio-items">
+            <!-- Los elementos del portafolio se cargarán aquí -->
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="container mt-5 mb-5">
+        <h2>Contáctanos</h2>
+        <div class="row">
+            <div class="col-md-8 offset-md-2 contact-form">
+                <p>¿Interesado en nuestros servicios? Completa el siguiente formulario o envíanos un WhatsApp.</p>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje (describe brevemente tu terreno):</label>
+                        <textarea class="form-control" id="mensaje" name="mensaje" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Enviar Mensaje por WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botón de WhatsApp -->
+    <div class="whatsapp-button">
+        <a href="https://wa.me/526644306775" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© <span id="currentYear"></span> Limpieza Ecológica con Ovejas. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Panel de Administración (Inicialmente oculto) -->
+    <div class="container admin-panel" id="adminPanel">
+        <h2>Panel de Administración</h2>
+        <p class="text-muted small">Nota: Los cambios se guardan localmente en tu navegador usando localStorage. No son permanentes en el servidor.</p>
+
+        <!-- Pestañas de Administración -->
+        <ul class="nav nav-tabs admin-tabs" id="adminTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="banner-tab" data-toggle="tab" href="#admin-banner" role="tab" aria-controls="admin-banner" aria-selected="true">Administrar Banner</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link" id="portfolio-tab" data-toggle="tab" href="#admin-portfolio" role="tab" aria-controls="admin-portfolio" aria-selected="false">Administrar Portafolio</a>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="adminTabContent">
+            <!-- Pestaña Administración Banner -->
+            <div class="tab-pane fade show active" id="admin-banner" role="tabpanel" aria-labelledby="banner-tab">
+                <h3>Gestionar Imágenes del Banner Principal</h3>
+                <form id="adminBannerForm">
+                    <div class="form-group">
+                        <label for="bannerImagenURL">URL de la Nueva Imagen del Banner:</label>
+                        <input type="url" class="form-control" id="bannerImagenURL" placeholder="https://ejemplo.com/imagen.jpg" required>
+                         <small class="form-text text-muted">Pega la URL completa de la imagen que deseas agregar.</small>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="agregarImagenBanner()">Agregar Imagen al Banner</button>
+                </form>
+                <hr>
+                <h4>Imágenes Actuales del Banner:</h4>
+                <ul class="list-unstyled" id="adminBannerList">
+                    <!-- Lista de imágenes del banner para borrar -->
+                </ul>
+            </div>
+
+            <!-- Pestaña Administración Portafolio -->
+            <div class="tab-pane fade" id="admin-portfolio" role="tabpanel" aria-labelledby="portfolio-tab">
+                 <h3>Agregar Nuevo Trabajo al Portafolio</h3>
+                <form id="adminPortfolioForm">
+                    <div class="form-group">
+                        <label for="portfolioImagenAntes">Imagen Antes (URL):</label>
+                        <input type="url" class="form-control" id="portfolioImagenAntes" placeholder="https://ejemplo.com/antes.jpg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="portfolioImagenDespues">Imagen Después (URL):</label>
+                        <input type="url" class="form-control" id="portfolioImagenDespues" placeholder="https://ejemplo.com/despues.jpg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="portfolioDescripcion">Descripción:</label>
+                        <textarea class="form-control" id="portfolioDescripcion" rows="2" required></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="agregarTrabajoPortafolio()">Agregar Trabajo</button>
+                </form>
+                 <hr>
+                <h4>Trabajos Actuales del Portafolio:</h4>
+                 <ul class="list-unstyled" id="adminPortfolioList">
+                    <!-- Lista de trabajos del portafolio para borrar -->
+                </ul>
+            </div>
+        </div>
+
+
+        <button type="button" class="btn btn-secondary mt-3" onclick="ocultarPanelAdmin()">Cerrar Panel</button>
+    </div>
+    <!-- Botón para abrir el panel (opcional, ya está en el menú) -->
+    <!-- <button type="button" class="btn btn-info" onclick="mostrarPanelAdmin()">Administrar Contenido</button> -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // --- Datos Iniciales (serán sobrescritos por localStorage si existe) ---
+        let bannerImages = [
+            { src: 'https://via.placeholder.com/1200x450/28A745/FFFFFF?text=Ovejas+Trabajando+1', alt: 'Ovejas limpiando terreno' },
+            { src: 'https://via.placeholder.com/1200x450/FFC107/000000?text=Terreno+Antes+1', alt: 'Terreno antes de la limpieza' },
+            { src: 'https://via.placeholder.com/1200x450/007BFF/FFFFFF?text=Terreno+Despues+1', alt: 'Terreno después de la limpieza' },
+            { src: 'https://via.placeholder.com/1200x450/6C757D/FFFFFF?text=Ovejas+Descansando', alt: 'Ovejas en el terreno' }
+        ];
+
+        let portfolioTrabajos = [
+             {
+                id: 'trabajo1', // ID único para cada trabajo
+                antes: 'https://via.placeholder.com/400x300/FFC107/000000?text=Antes+Trabajo+1',
+                despues: 'https://via.placeholder.com/400x300/28A745/FFFFFF?text=Despu%C3%A9s+Trabajo+1',
+                descripcion: 'Limpieza de terreno residencial con alta densidad de maleza.'
+            },
+            {
+                id: 'trabajo2',
+                antes: 'https://via.placeholder.com/400x300/DC3545/FFFFFF?text=Antes+Trabajo+2',
+                despues: 'https://via.placeholder.com/400x300/28A745/FFFFFF?text=Despu%C3%A9s+Trabajo+2',
+                descripcion: 'Recuperación de área verde en parque industrial.'
+            }
+        ];
+
+        // --- Funciones de Carga y Guardado en LocalStorage ---
+        function guardarDatos() {
+            localStorage.setItem('bannerImagesData', JSON.stringify(bannerImages));
+            localStorage.setItem('portfolioTrabajosData', JSON.stringify(portfolioTrabajos));
+            console.log("Datos guardados en localStorage.");
+        }
+
+        function cargarDatos() {
+            const storedBannerImages = localStorage.getItem('bannerImagesData');
+            const storedPortfolioTrabajos = localStorage.getItem('portfolioTrabajosData');
+
+            if (storedBannerImages) {
+                bannerImages = JSON.parse(storedBannerImages);
+                console.log("Imágenes del banner cargadas desde localStorage.");
+            } else {
+                console.log("Usando imágenes del banner por defecto.");
+            }
+
+            if (storedPortfolioTrabajos) {
+                portfolioTrabajos = JSON.parse(storedPortfolioTrabajos);
+                 console.log("Trabajos del portafolio cargados desde localStorage.");
+            } else {
+                 console.log("Usando trabajos del portafolio por defecto.");
+            }
+        }
+
+        // --- Funciones para Generar Contenido Dinámico ---
+        function generarBannerCarousel() {
+            const indicatorsContainer = document.getElementById('banner-indicators');
+            const innerContainer = document.getElementById('banner-inner');
+            indicatorsContainer.innerHTML = ''; // Limpiar indicadores
+            innerContainer.innerHTML = ''; // Limpiar slides
+
+            bannerImages.forEach((img, index) => {
+                // Crear Indicador
+                const indicator = document.createElement('li');
+                indicator.setAttribute('data-target', '#bannerCarousel');
+                indicator.setAttribute('data-slide-to', index.toString());
+                if (index === 0) {
+                    indicator.className = 'active';
+                }
+                indicatorsContainer.appendChild(indicator);
+
+                // Crear Slide
+                const slide = document.createElement('div');
+                slide.className = 'carousel-item' + (index === 0 ? ' active' : '');
+                const image = document.createElement('img');
+                image.className = 'd-block w-100';
+                image.src = img.src;
+                image.alt = img.alt || `Banner Image ${index + 1}`; // Alt text por defecto
+                slide.appendChild(image);
+                innerContainer.appendChild(slide);
+            });
+
+             // Reiniciar el carrusel si ya estaba inicializado (para que tome los cambios)
+            $('#bannerCarousel').carousel('dispose');
+            $('#bannerCarousel').carousel();
+        }
+
+        function generarPortfolio() {
+            const portfolioContainer = document.getElementById('portfolio-items');
+            portfolioContainer.innerHTML = ''; // Limpiar portafolio
+
+            if (portfolioTrabajos.length === 0) {
+                 portfolioContainer.innerHTML = '<p class="col-12 text-center">Aún no hay trabajos en el portafolio.</p>';
+                 return;
+            }
+
+            portfolioTrabajos.forEach(trabajo => {
+                const itemHTML = `
+                    <div class="col-md-6 portfolio-item" id="${trabajo.id}">
+                        <div class="row">
+                            <div class="col-6">
+                                <img src="${trabajo.antes}" alt="Antes - ${trabajo.descripcion}">
+                                <p class="text-center small">Antes</p>
+                            </div>
+                            <div class="col-6">
+                                <img src="${trabajo.despues}" alt="Después - ${trabajo.descripcion}">
+                                 <p class="text-center small">Después</p>
+                            </div>
+                        </div>
+                         <p class="mt-2">${trabajo.descripcion}</p>
+                    </div>
+                `;
+                portfolioContainer.insertAdjacentHTML('beforeend', itemHTML);
+            });
+        }
+
+        // --- Funciones del Panel de Administración ---
+        function mostrarPanelAdmin() {
+            actualizarListasAdmin(); // Actualizar listas antes de mostrar
+            document.getElementById('adminPanel').style.display = 'block';
+        }
+
+        function ocultarPanelAdmin() {
+            document.getElementById('adminPanel').style.display = 'none';
+        }
+
+        function actualizarListasAdmin() {
+            // Actualizar lista de banner
+            const bannerList = document.getElementById('adminBannerList');
+            bannerList.innerHTML = '';
+            bannerImages.forEach((img, index) => {
+                const listItem = document.createElement('li');
+                listItem.className = 'admin-list-item';
+                listItem.innerHTML = `
+                    <span><img src="${img.src}" alt="Miniatura" class="img-thumbnail mr-2"> ${img.src.substring(0, 50)}...</span>
+                    <button class="btn btn-danger btn-sm" onclick="borrarImagenBanner(${index})">Borrar</button>
+                `;
+                bannerList.appendChild(listItem);
+            });
+             if (bannerImages.length === 0) bannerList.innerHTML = '<li>No hay imágenes en el banner.</li>';
+
+            // Actualizar lista de portafolio
+             const portfolioList = document.getElementById('adminPortfolioList');
+             portfolioList.innerHTML = '';
+             portfolioTrabajos.forEach((trabajo, index) => {
+                 const listItem = document.createElement('li');
+                 listItem.className = 'admin-list-item';
+                 listItem.innerHTML = `
+                    <span>
+                        <img src="${trabajo.antes}" alt="Mini Antes" class="img-thumbnail mr-1">
+                        <img src="${trabajo.despues}" alt="Mini Despues" class="img-thumbnail mr-2">
+                        ${trabajo.descripcion.substring(0, 40)}...
+                    </span>
+                    <button class="btn btn-danger btn-sm" onclick="borrarTrabajoPortafolio(${index})">Borrar</button>
+                 `;
+                 portfolioList.appendChild(listItem);
+             });
+             if (portfolioTrabajos.length === 0) portfolioList.innerHTML = '<li>No hay trabajos en el portafolio.</li>';
+        }
+
+        // Funciones para Agregar
+        function agregarImagenBanner() {
+            const imagenURL = document.getElementById('bannerImagenURL').value.trim();
+            if (!imagenURL) {
+                alert("Por favor, ingresa la URL de la imagen.");
+                return;
+            }
+             try { // Validar si es una URL válida (básico)
+                new URL(imagenURL);
+            } catch (_) {
+                alert("Por favor, ingresa una URL válida (ej: https://...).");
+                return;
+            }
+
+            bannerImages.push({ src: imagenURL, alt: 'Nueva imagen del banner' });
+            guardarDatos();
+            generarBannerCarousel();
+            actualizarListasAdmin(); // Actualizar lista en admin
+            document.getElementById('bannerImagenURL').value = ''; // Limpiar campo
+             alert('Imagen agregada al banner.');
+        }
+
+        function agregarTrabajoPortafolio() {
+            const imagenAntesURL = document.getElementById('portfolioImagenAntes').value.trim();
+            const imagenDespuesURL = document.getElementById('portfolioImagenDespues').value.trim();
+            const descripcion = document.getElementById('portfolioDescripcion').value.trim();
+
+            if (!imagenAntesURL || !imagenDespuesURL || !descripcion) {
+                alert("Por favor, completa todos los campos del portafolio.");
+                return;
+            }
+             try { // Validar URLs
+                new URL(imagenAntesURL);
+                new URL(imagenDespuesURL);
+            } catch (_) {
+                alert("Por favor, ingresa URLs válidas para las imágenes.");
+                return;
+            }
+
+            const nuevoTrabajo = {
+                id: 'trabajo' + Date.now(), // ID único simple
+                antes: imagenAntesURL,
+                despues: imagenDespuesURL,
+                descripcion: descripcion
+            };
+
+            portfolioTrabajos.push(nuevoTrabajo);
+            guardarDatos();
+            generarPortfolio();
+            actualizarListasAdmin(); // Actualizar lista en admin
+
+            // Limpiar los campos del formulario
+            document.getElementById('adminPortfolioForm').reset();
+            alert('Trabajo agregado al portafolio.');
+        }
+
+        // Funciones para Borrar
+        function borrarImagenBanner(index) {
+             if (confirm(`¿Estás seguro de que quieres borrar esta imagen del banner?\n${bannerImages[index].src.substring(0,50)}...`)) {
+                bannerImages.splice(index, 1); // Elimina 1 elemento en el índice 'index'
+                guardarDatos();
+                generarBannerCarousel();
+                actualizarListasAdmin();
+                alert('Imagen del banner borrada.');
+            }
+        }
+
+         function borrarTrabajoPortafolio(index) {
+            if (confirm(`¿Estás seguro de que quieres borrar este trabajo del portafolio?\n${portfolioTrabajos[index].descripcion.substring(0,50)}...`)) {
+                portfolioTrabajos.splice(index, 1);
+                guardarDatos();
+                generarPortfolio();
+                actualizarListasAdmin();
+                alert('Trabajo del portafolio borrado.');
+            }
+        }
+
+
+        // --- Inicialización al Cargar la Página ---
+        document.addEventListener('DOMContentLoaded', function() {
+            cargarDatos(); // Cargar datos desde localStorage (o usar defaults)
+            generarBannerCarousel(); // Generar el carrusel inicial
+            generarPortfolio(); // Generar el portafolio inicial
+
+             // Actualizar año en el footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+
+        // --- Formulario de Contacto ---
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar la recarga de la página
+
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            let whatsappText = `¡Hola! Me gustaría obtener más información sobre sus servicios de limpieza con ovejas.\n\n`;
+            if (nombre) whatsappText += `Nombre: ${nombre}\n`;
+            if (email) whatsappText += `Correo: ${email}\n`;
+            if (telefono) whatsappText += `Teléfono: ${telefono}\n`;
+            if (mensaje) whatsappText += `Mensaje: ${mensaje}\n`;
+            whatsappText += `\nEnviado desde el sitio web.`;
+
+            const whatsappLink = `https://wa.me/526644306775?text=${encodeURIComponent(whatsappText)}`;
+
+            window.open(whatsappLink, '_blank');
+
+            // Opcional: Limpiar el formulario
+            // document.getElementById('contactForm').reset();
+            // alert('Serás redirigido a WhatsApp para enviar tu mensaje.');
+        });
+
+    </script>
+</body>
+</html>
