@@ -1,1 +1,1 @@
-manda un mensaje para cotizacion
+manda un mensaje para cotizacion, precios accesibles
